@@ -18,3 +18,11 @@ export const insertData = async (data) => {
     console.error('Error inserting data:', error);
   }
 };
+
+export const updateData = async (data) => {
+  try {
+    await axios.put(`${API_URL}/api/posts`, data);
+  } catch (error) {
+    console.error('Error inserting data:', error);
+  }
+};

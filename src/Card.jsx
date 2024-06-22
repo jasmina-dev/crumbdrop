@@ -1,14 +1,29 @@
 import React from "react";
 import "./Card.css";
+import { updateData } from "./api/api";
+import { useEffect } from "react";
 
 const Card = (props) => {
-  const [claimed, setClaimed] = React.useState(false);
+  const [claimed, setClaimed] = React.useState(props.claimed);
+
+  useEffect(() => {
+    const getData = async () => {
+      const result = await fetchData();
+      setClaimed(result[props.id].claimed);
+    };
+
+    getData();
+  }, []);
 
   const handleClick = async (e) => {
     e.preventDefault();
+    setClaimed(1);
+    const data = {
+      claimed: 1,
+      id: props.id,
+    };
     try {
-      await insertData(formData);
-      setClaimed(true);
+      await updateData(data);
     } catch (error) {}
   };
 
@@ -21,7 +36,12 @@ const Card = (props) => {
         <p className="card-location">{props.location}</p>
         <p className="card-description">{props.description}</p>
       </div>
-      <button id="claim-btn">claim</button>
+      <button
+        className={claimed === 1 ? "hidden-btn" : "active-btn"}
+        onClick={handleClick}
+      >
+        {claimed === 1 ? "claimed" : "claim"}
+      </button>
     </div>
   );
 };

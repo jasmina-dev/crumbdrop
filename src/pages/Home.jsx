@@ -6,6 +6,7 @@ import { fetchData } from "../api/api";
 
 export default function Home() {
   const [posts, setPosts] = React.useState([]);
+  const [filter, setFilter] = React.useState("");
 
   useEffect(() => {
     const getData = async () => {
@@ -16,17 +17,34 @@ export default function Home() {
     getData();
   }, []);
 
-  const cards = posts.map((post) => {
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+  };
+
+  const filteredPosts = filter
+    ? posts.filter((post) => post.school === filter)
+    : posts;
+
+  const cards = filteredPosts.map((post) => {
+    console.log(post);
     return (
       <Card
         key={post.id}
+        id={post.id}
         title={post.title}
         school={post.school}
         description={post.description}
         location={post.location}
+        claimed={post.claimed}
       />
     );
   });
+
+  const schools = [
+    "Lafayette College",
+    "University of Washington",
+    "Lehigh University",
+  ];
 
   return (
     <div className="hero">
@@ -44,7 +62,14 @@ export default function Home() {
       <div className="filter">
         <h4>or just see what's posted near you</h4>
         <div className="dropdown">
-          <a href="">choose school</a>
+          <select onChange={handleFilterChange}>
+            <option value="">choose school</option>
+            {schools.map((school) => (
+              <option key={school} value={school}>
+                {school}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 
