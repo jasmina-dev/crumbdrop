@@ -21,15 +21,27 @@ connection.connect((err) => {
     console.log('Connected to crumbdrop db');
 });
 
-// what is this lmao
-app.use(express.static(path.join(__dirname, '../src')));
+// serve dist folder
+app.use(express.static("dist"));
 
 // db query !!
-app.get('/api/test', (req, res) => {
-    const query = 'SELECT * FROM your_table_name'; 
+app.get('/api/posts', (req, res) => {
+    const query = 'SELECT * FROM posts'; 
     connection.query(query, (error, results) => {
         if (error) {
             res.status(500).send(error);
+            return;
+        }
+        res.json(results);
+    });
+});
+
+app.post('/api/posts', (req, res) => {
+    const query = 'INSERT INTO posts (title, school, description) VALUES (?, ?, ?)';
+    const values = [req.body.title, req.body.school, req.body.description];
+    connection.query(query, values, (error, results) => {
+        if (error) {
+            res.status(500).send(error.response.data);
             return;
         }
         res.json(results);

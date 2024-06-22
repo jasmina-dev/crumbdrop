@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "../Card";
-import posts from "../posts";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import { fetchData } from "../api/api";
 
 export default function Home() {
+  const [posts, setPosts] = React.useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const result = await fetchData();
+      setPosts(result);
+    };
+
+    getData();
+  }, []);
+
   const cards = posts.map((post) => {
     return (
       <Card
         key={post.id}
-        imageUrl={post.imageUrl}
         title={post.title}
         school={post.school}
         description={post.description}
