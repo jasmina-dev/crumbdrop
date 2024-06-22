@@ -13,7 +13,6 @@ export const fetchData = async () => {
 
 export const insertData = async (data) => {
   try {
-    console.log(data)
     await axios.post(`${API_URL}/api/posts`, data);
   } catch (error) {
     console.error('Error inserting data:', error);

@@ -11,9 +11,25 @@ const SubmitForm = () => {
     description: "",
   });
 
+  const [msg, setMsg] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await insertData(formData);
+    try {
+      await insertData(formData);
+      setMsg("yay! you submitted your leftovers. 🎉");
+      clearForm();
+    } catch (error) {
+      setMsg("oops! something went wrong. 😢");
+    }
+  };
+
+  const clearForm = () => {
+    setFormData({
+      title: "",
+      school: "",
+      description: "",
+    });
   };
 
   return (
@@ -58,6 +74,7 @@ const SubmitForm = () => {
           <button onClick={handleSubmit} type="submit">
             Submit
           </button>
+          {msg && <p>{msg}</p>}
         </form>
       </div>
       <Footer />
