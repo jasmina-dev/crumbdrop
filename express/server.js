@@ -50,6 +50,19 @@ app.post('/api/posts', (req, res) => {
     });
 });
 
+app.put('/api/posts', (req, res) => {
+    const query = 'UPDATE posts SET claimed = ? WHERE id = ?';
+    const values = [req.body.claimed, req.body.id];
+    connection.query(query, values, (error, results) => {
+        if (error) {
+            res.status(500).send(error);
+            return;
+        }
+        res.json(results);
+    });
+});    
+
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
