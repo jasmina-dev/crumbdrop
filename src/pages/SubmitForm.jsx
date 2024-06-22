@@ -34,6 +34,12 @@ const SubmitForm = () => {
     });
   };
 
+  const schools = [
+    "Lafayette College",
+    "University of Washington",
+    "Lehigh University",
+  ];
+
   return (
     <div>
       <div className="submit-hero">
@@ -60,11 +66,11 @@ const SubmitForm = () => {
               setFormData({ ...formData, school: e.target.value })
             }
           >
-            <option value="Lafayette College">Lafayette College</option>
-            <option value="University of Washington">
-              University of Washington
-            </option>
-            <option value="Lehigh University">Lehigh University</option>
+            {schools.map((school) => (
+              <option key={school} value={school}>
+                {school}
+              </option>
+            ))}
           </select>
           <input
             type="text"
