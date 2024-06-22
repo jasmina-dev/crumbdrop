@@ -65,7 +65,7 @@ select:focus {
 }
 
 /* Buttons */
-button {
+#submit-post-btn {
     display: inline-block;
     padding: 15px 30px;
     margin-top: 20px;

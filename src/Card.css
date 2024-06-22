@@ -16,11 +16,12 @@
     border-radius: 10px;
 }
 
-.card-school {
+.card-school, .card-location {
     font-weight: 300;
     letter-spacing: -.5px;
     margin-top: 0;
 }
+
 
 .card-title {
     margin: 5px 0px 5px;
@@ -28,4 +29,19 @@
 
 .card-description {
     margin: 0;
+}
+
+#claim-btn {
+    display: inline-block;
+    padding: 5px;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #3949fd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color .3s, box-shadow .3s;
+    font-family: Fira Sans, sans-serif;
+    font-size: 13px;
+    font-weight: 600
 }

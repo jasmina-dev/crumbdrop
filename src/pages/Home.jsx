@@ -23,6 +23,7 @@ export default function Home() {
         title={post.title}
         school={post.school}
         description={post.description}
+        location={post.location}
       />
     );
   });

@@ -7,8 +7,9 @@ import { fetchData, insertData } from "../api/api";
 const SubmitForm = () => {
   const [formData, setFormData] = useState({
     title: "",
-    school: "",
+    school: "Lafayette College",
     description: "",
+    location: "",
   });
 
   const [msg, setMsg] = useState("");
@@ -27,8 +28,9 @@ const SubmitForm = () => {
   const clearForm = () => {
     setFormData({
       title: "",
-      school: "",
+      school: "Lafayette College",
       description: "",
+      location: "",
     });
   };
 
@@ -73,7 +75,16 @@ const SubmitForm = () => {
               setFormData({ ...formData, description: e.target.value })
             }
           ></input>
-          <button onClick={handleSubmit} type="submit">
+          <input
+            type="text"
+            name="location"
+            placeholder="Location"
+            value={formData.location || ""}
+            onChange={(e) =>
+              setFormData({ ...formData, location: e.target.value })
+            }
+          ></input>
+          <button id="submit-post-btn" onClick={handleSubmit} type="submit">
             Submit
           </button>
           {msg && <p>{msg}</p>}
