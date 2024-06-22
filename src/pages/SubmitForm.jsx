@@ -58,9 +58,11 @@ const SubmitForm = () => {
               setFormData({ ...formData, school: e.target.value })
             }
           >
-            <option value="user">Lafayette College</option>
-            <option value="admin">University of Washington</option>
-            <option value="guest">Lehigh University</option>
+            <option value="Lafayette College">Lafayette College</option>
+            <option value="University of Washington">
+              University of Washington
+            </option>
+            <option value="Lehigh University">Lehigh University</option>
           </select>
           <input
             type="text"
