@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  font-family: 'Fira Sans', sans-serif;
+  color: #0718C4;
+  font-weight: 400;
+  background-color: #E6F0FF;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero h2 {
+  font-family: 'Bowlby One', sans-serif;
+  color: #3949FD;
+  font-size: 60px;
+  margin: 50px 0px 0px 0px;
+  margin-bottom: 20px;
+}
+
+.slogan {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.slogan h4 {
+  margin: 0;
+  font-weight: 400;
+}
+
+.sign-up-div {
+  margin: 30px;
+}
+
+.sign-up-div a {
+  text-decoration: none;
+  color: white;
+  background-color: #3949FD;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.filter h4 {
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.dropdown a {
+  text-decoration: none;
+  color: #3949FD;
+  background-color: #fff;
+  padding: 10px 30px;
+  border: 1px solid #3949FD;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+
+/* Mobile-friendly styles */
+@media (max-width: 768px) {
+  .hero {
+    padding: 20px;
+  }
+  .hero h2 {
+    font-size: 40px;
+    margin: 30px 0 10px 0; /* Adjusted margin for mobile */
+  }
+
+  .slogan {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .sign-up-div {
+    margin: 20px;
+  }
+
+  .sign-up-div a {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .filter h4 {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .dropdown a {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .cards {
+    flex-wrap: wrap;
+  }
+}

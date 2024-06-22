@@ -1,0 +1,31 @@
+.card {
+    width: 165px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #3949FD;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.card img {
+    width: 160px;
+    height: 140px;
+    border-radius: 10px;
+}
+
+.card-school {
+    font-weight: 300;
+    letter-spacing: -.5px;
+    margin-top: 0;
+}
+
+.card-title {
+    margin: 5px 0px 5px;
+}
+
+.card-description {
+    margin: 0;
+}
