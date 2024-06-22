@@ -10,6 +10,8 @@ const PORT = process.env.PORT || 5000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+app.use(express.json())
+
 //el connectiono
 const connection = mysql.createConnection(dbConfig);
 
@@ -37,11 +39,11 @@ app.get('/api/posts', (req, res) => {
 });
 
 app.post('/api/posts', (req, res) => {
-    const query = 'INSERT INTO posts (title, school, description) VALUES (?, ?, ?)';
+    const query = 'INSERT INTO posts (title, school, description) VALUES (?)';
     const values = [req.body.title, req.body.school, req.body.description];
-    connection.query(query, values, (error, results) => {
+    connection.query(query, [values], (error, results) => {
         if (error) {
-            res.status(500).send(error.response.data);
+            res.status(500).send(error);
             return;
         }
         res.json(results);

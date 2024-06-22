@@ -7,14 +7,15 @@ export const fetchData = async () => {
     const response = await axios.get(`${API_URL}/api/posts`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching data:', error.response.data);
+    console.error('Error fetching data:', error);
   }
 };
 
 export const insertData = async (data) => {
   try {
+    console.log(data)
     await axios.post(`${API_URL}/api/posts`, data);
   } catch (error) {
-    console.error('Error inserting data:', error.response.data);
+    console.error('Error inserting data:', error);
   }
 };

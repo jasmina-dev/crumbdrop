@@ -23,11 +23,12 @@ const SubmitForm = () => {
         <Link to="/">back home 🏡</Link>
       </div>
       <div className="form-container">
-        <form onSubmit={handleSubmit}>
+        <form>
           <input
             type="text"
             name="title"
             placeholder="Title"
+            value={formData.title || ""}
             onChange={(e) =>
               setFormData({ ...formData, title: e.target.value })
             }
@@ -36,6 +37,7 @@ const SubmitForm = () => {
           <select
             id="school"
             name="school"
+            value={formData.school || ""}
             onChange={(e) =>
               setFormData({ ...formData, school: e.target.value })
             }
@@ -48,11 +50,14 @@ const SubmitForm = () => {
             type="text"
             name="description"
             placeholder="Description"
+            value={formData.description || ""}
             onChange={(e) =>
               setFormData({ ...formData, description: e.target.value })
             }
           ></input>
-          <button type="submit">Submit</button>
+          <button onClick={handleSubmit} type="submit">
+            Submit
+          </button>
         </form>
       </div>
       <Footer />
