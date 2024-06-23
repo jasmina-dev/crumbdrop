@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import "./submitform.css";
 import { fetchData, insertData } from "../api/api";
+import photos from "../photos.js";
 
 const SubmitForm = () => {
   const [formData, setFormData] = useState({
@@ -10,14 +11,34 @@ const SubmitForm = () => {
     school: "Lafayette College",
     description: "",
     location: "",
+    imageurl: "",
   });
 
   const [msg, setMsg] = useState("");
 
+  const getRandomImage = (title) => {
+    let url = "";
+    photos.map((photo) => {
+      if (photo.title.toLowerCase().includes(title.toLowerCase())) {
+        url = photo.url;
+      }
+    });
+
+    if (url === "") {
+      url = photos[9].url;
+    }
+
+    return url;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      await insertData(formData);
+      const imageUrl = getRandomImage(formData.title);
+      const dataToSubmit = { ...formData, imageurl: imageUrl };
+
+      await insertData(dataToSubmit);
       setMsg("yay! you submitted your leftovers. 🎉");
       clearForm();
     } catch (error) {
@@ -31,6 +52,7 @@ const SubmitForm = () => {
       school: "Lafayette College",
       description: "",
       location: "",
+      imageurl: "",
     });
   };
 

@@ -36,6 +36,7 @@ export default function Home() {
         description={post.description}
         location={post.location}
         claimed={post.claimed}
+        imageurl={post.imgurl}
       />
     );
   });

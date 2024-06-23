@@ -39,8 +39,8 @@ app.get('/api/posts', (req, res) => {
 });
 
 app.post('/api/posts', (req, res) => {
-    const query = 'INSERT INTO posts (title, school, description, location) VALUES (?)';
-    const values = [req.body.title, req.body.school, req.body.description, req.body.location];
+    const query = 'INSERT INTO posts (title, school, description, location, imgurl) VALUES (?)';
+    const values = [req.body.title, req.body.school, req.body.description, req.body.location, req.body.imageurl];
     connection.query(query, [values], (error, results) => {
         if (error) {
             res.status(500).send(error);

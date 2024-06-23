@@ -1,6 +1,6 @@
 import React from "react";
 import "./Card.css";
-import { updateData } from "./api/api";
+import { fetchData, updateData } from "./api/api";
 import { useEffect } from "react";
 
 const Card = (props) => {
@@ -29,7 +29,7 @@ const Card = (props) => {
 
   return (
     <div className="card">
-      <img src={""} alt={props.title} className="card-image" />
+      <img src={props.imageurl} alt={props.title} className="card-image" />
       <div className="card-content">
         <h4 className="card-title">{props.title}</h4>
         <p className="card-school">📍 {props.school}</p>
