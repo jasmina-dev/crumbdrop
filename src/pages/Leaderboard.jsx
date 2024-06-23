@@ -11,7 +11,6 @@ const Leaderboard = () => {
   return (
     <div>
       <h2 className="leaderboard-head">leaderboard</h2>
-      <Link to="/">back home 🏡</Link>
       <table>
         <thead>
           <tr>
