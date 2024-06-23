@@ -38,6 +38,17 @@ app.get('/api/posts', (req, res) => {
     });
 });
 
+app.get('/api/lboard', (req, res) => {
+    const query = 'SELECT * FROM leaderboard ORDER BY points DESC'; 
+    connection.query(query, (error, results) => {
+        if (error) {
+            res.status(500).send(error);
+            return;
+        }
+        res.json(results);
+    });
+});
+
 app.post('/api/posts', (req, res) => {
     const query = 'INSERT INTO posts (title, school, description, location, imgurl) VALUES (?)';
     const values = [req.body.title, req.body.school, req.body.description, req.body.location, req.body.imageurl];
