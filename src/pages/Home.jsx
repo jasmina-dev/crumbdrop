@@ -58,7 +58,10 @@ export default function Home() {
 
       <div className="slogan">
         <h4>no crumbs left behind.</h4>
-        <h4>don't let your leftovers go to waste 👇</h4>
+        <h4>
+          don't let your leftovers go to waste! post extra online orders or
+          groceries 👇
+        </h4>
       </div>
 
       <div className="sign-up-div">
