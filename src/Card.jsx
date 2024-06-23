@@ -21,7 +21,7 @@ const Card = (props) => {
     const data = {
       claimed: 1,
       id: props.id,
-      school: props.school
+      school: props.school,
     };
     try {
       await updateData(data);

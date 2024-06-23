@@ -1,7 +1,22 @@
 /* Overall container styling */
-div {
+.leaderboard {
   max-width: 600px;
   margin: auto;
+}
+
+.leaderboard-hero {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.leaderboard-hero a {
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    color:#0718C4;
 }
 
 /* Heading styling */
