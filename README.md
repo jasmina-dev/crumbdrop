@@ -1,8 +1,7 @@
-# React + Vite
+# How to Run Crumbdrop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Clone this repository. 
+Run `npm install` in your terminal inside the project directory.
+Then run `npm run build` in the project directory.
+Drag and drop the `dist` folder into the `express` folder.
+Then `cd express` and run `node server` to start the development server. The project will be hosted on `localhost:5000`. Yay!
