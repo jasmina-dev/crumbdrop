@@ -46,7 +46,37 @@ app.post('/api/posts', (req, res) => {
             res.status(500).send(error);
             return;
         }
-        res.json(results);
+    });
+
+
+    // get current points
+    const getPoints = 'SELECT points FROM leaderboard WHERE name = ?';
+    const name = [req.body.school]
+
+    connection.query(getPoints, [name], (err, result) => {
+    if (err) {
+      res.status(500).json({ error: 'Database error' });
+      return;
+    }
+    if (result.length > 0) {
+        let currentPoints = result[0].points;
+        let newPoints = currentPoints + 10;
+        console.log(currentPoints);
+        console.log(newPoints);
+        // update points in leaderboard
+        const pointquery = 'UPDATE leaderboard SET points = ? WHERE name = ?';
+        const pvalues = [newPoints, req.body.school];
+        connection.query(pointquery, pvalues, (error, results) => {
+            if (error) {
+                res.status(500).send(error);
+                return;
+            }
+            res.json({ points: newPoints });
+        });
+        
+    } else {
+      res.status(404).json({ error: 'Database error' });
+    }
     });
 });
 
@@ -58,7 +88,35 @@ app.put('/api/posts', (req, res) => {
             res.status(500).send(error);
             return;
         }
-        res.json(results);
+    });
+    // get current points
+    const getPoints = 'SELECT points FROM leaderboard WHERE name = ?';
+    const name = [req.body.school]
+
+    connection.query(getPoints, [name], (err, result) => {
+    if (err) {
+      res.status(500).json({ error: 'Database error' });
+      return;
+    }
+    if (result.length > 0) {
+        let currentPoints = result[0].points;
+        let newPoints = currentPoints + 100;
+        console.log(currentPoints);
+        console.log(newPoints);
+        // update points in leaderboard
+        const pointquery = 'UPDATE leaderboard SET points = ? WHERE name = ?';
+        const pvalues = [newPoints, req.body.school];
+        connection.query(pointquery, pvalues, (error, results) => {
+            if (error) {
+                res.status(500).send(error);
+                return;
+            }
+            res.json({ points: newPoints });
+        });
+        
+    } else {
+      res.status(404).json({ error: 'Database error' });
+    }
     });
 });    
 
