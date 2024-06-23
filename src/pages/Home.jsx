@@ -49,7 +49,11 @@ export default function Home() {
 
   return (
     <div className="hero">
-      <h2>crumbdrop</h2>
+      <div className="nav-head">
+        <h2>crumbdrop</h2>
+
+        <Link to="/leaderboard">see the community leaderboard 🏆</Link>
+      </div>
 
       <div className="slogan">
         <h4>no crumbs left behind.</h4>
