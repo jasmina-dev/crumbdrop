@@ -3,6 +3,7 @@ import Card from "../Card";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { fetchData } from "../api/api";
+import "../App.css";
 
 export default function Home() {
   const [posts, setPosts] = React.useState([]);

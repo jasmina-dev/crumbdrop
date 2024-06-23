@@ -1,4 +1,6 @@
 import React from "react";
+import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 import "./leaderboard.css";
 
 const Leaderboard = () => {
@@ -9,8 +11,11 @@ const Leaderboard = () => {
   ];
 
   return (
-    <div>
-      <h2 className="leaderboard-head">leaderboard</h2>
+    <div className="leaderboard">
+      <div className="leaderboard-hero">
+        <h2>leaderboard</h2>
+        <Link to="/">back home 🏡</Link>
+      </div>
       <table>
         <thead>
           <tr>
@@ -27,6 +32,7 @@ const Leaderboard = () => {
           ))}
         </tbody>
       </table>
+      <Footer />
     </div>
   );
 };
