@@ -101,8 +101,6 @@ app.put('/api/posts', (req, res) => {
     if (result.length > 0) {
         let currentPoints = result[0].points;
         let newPoints = currentPoints + 100;
-        console.log(currentPoints);
-        console.log(newPoints);
         // update points in leaderboard
         const pointquery = 'UPDATE leaderboard SET points = ? WHERE name = ?';
         const pvalues = [newPoints, req.body.school];
